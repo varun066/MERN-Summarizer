@@ -14,7 +14,11 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors());
+const cors = require('cors');
+// Replace the Vercel URL placeholder with the URL you get in Step 1.
+const VERCEL_FRONTEND_URL = 'https://mern-summarizer-app.vercel.app/'; 
+
+app.use(cors({ origin: VERCEL_FRONTEND_URL }));
 
 app.get("/health", (req, res) => {
     res.send("Server is running")});
