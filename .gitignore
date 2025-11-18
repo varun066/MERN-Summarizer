@@ -1,15 +1,13 @@
-# Ignore node modules everywhere
+# Dependency directories
 node_modules/
 
-# Ignore environment files
+# Environment variables
 .env
-backend/.env
-frontend/.env
 
-# Ignore build output
+# Build/dist folders (for production builds if you have them)
 dist/
 build/
 
-# Mac / Windows files
-.DS_Store
-Thumbs.db
+# Other files you might want to ignore
+npm-debug.log
+# ... any IDE specific files like .vscode/
