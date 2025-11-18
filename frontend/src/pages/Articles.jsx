@@ -6,7 +6,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 
-const API_URL = "http://localhost:5000/articles";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+const API_URL = `${BASE_URL}/articles`; 
+//const API_URL = "http://localhost:5000/articles";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);

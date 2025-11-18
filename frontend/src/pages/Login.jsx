@@ -11,10 +11,15 @@ const Login = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Define the base URL using the environment variable
+const BASE_URL = import.meta.env.VITE_BACKEND_URL; 
+// Define the full API endpoint for this request
+const SIGNIN_API_URL = `${BASE_URL}/auth/signin`;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/auth/signin", form);
+      const res = await axios.post(SIGNIN_API_URL, form);
       localStorage.setItem("token", res.data.token);
       alert("Login successful!");
       navigate("/articles"); // You can create a dashboard page later

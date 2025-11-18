@@ -1,6 +1,11 @@
 import {useState,useEffect} from "react";
 import NavBar from "../components/NavBar";
 
+// 1. Define the base URL using the environment variable
+const BASE_URL = import.meta.env.VITE_BACKEND_URL; 
+// 2. Define the full API endpoint for this request
+const HISTORY_API_URL = `${BASE_URL}/summeries/history`;
+
 const History=()=>{
     const[summaries,setSummaries]=useState([]);
     const[loading,setLoading]=useState(false);
@@ -11,7 +16,7 @@ const History=()=>{
         try{
             const token=localStorage.getItem("token");
             setLoading(true);
-            const res=await fetch("http://localhost:5000/summeries/history",{
+            const res=await fetch(HISTORY_API_URL,{
                 headers:{
                     "Authorization":`Bearer ${token}`,
                     "Content-Type":"application/json"

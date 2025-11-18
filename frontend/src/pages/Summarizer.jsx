@@ -1,6 +1,8 @@
 import { useState } from "react";
 import NavBar from "../components/NavBar";
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 const Summarizer = () => {
   const [articleId, setArticleId] = useState("");
   const [article, setArticle] = useState(null);
@@ -23,7 +25,10 @@ const[summarizing,setSummarizing]=useState(false);
       setLoading(true);
           const token = localStorage.getItem("token"); 
 
-      const response = await fetch(`http://localhost:5000/articles/${articleId}`,{headers: {
+          // 1. UPDATE: Use BASE_URL and template literal to construct the search URL
+      const SEARCH_URL = `${BASE_URL}/articles/${articleId}`;
+
+      const response = await fetch(SEARCH_URL,{headers: {
         "Authorization": `Bearer ${token}`,  
         "Content-Type": "application/json"
     }});
@@ -54,7 +59,11 @@ const[summarizing,setSummarizing]=useState(false);
       setError("");
       const token = localStorage.getItem("token");
 
-      const res=await fetch("http://localhost:5000/summeries",{
+
+      // 2. UPDATE: Define the summarize URL using BASE_URL
+      const SUMMARIZE_URL = `${BASE_URL}/summeries`;
+
+      const res=await fetch(SUMMARIZE_URL,{
         method:"POST",
         headers:{
           "Authorization": `Bearer ${token}`,

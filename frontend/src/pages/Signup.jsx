@@ -11,10 +11,15 @@ const Signup = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+// Define the base URL using the environment variable
+const BASE_URL = import.meta.env.VITE_BACKEND_URL; 
+// Define the full API endpoint for this request
+const SIGNUP_API_URL = `${BASE_URL}/auth/signup`;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/auth/signup", form);
+      await axios.post(SIGNUP_API_URL, form);
       alert("Signup successful!");
       navigate("/login");
     } catch (err) {
