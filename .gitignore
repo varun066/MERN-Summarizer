@@ -1,0 +1,15 @@
+# Ignore node modules everywhere
+node_modules/
+
+# Ignore environment files
+.env
+backend/.env
+frontend/.env
+
+# Ignore build output
+dist/
+build/
+
+# Mac / Windows files
+.DS_Store
+Thumbs.db
