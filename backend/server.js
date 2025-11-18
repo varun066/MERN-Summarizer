@@ -4,7 +4,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import summeryRoutes from "./routes/summeryRoutes.js";
 import articleRoutes from "./routes/articleRoutes.js";
-import cors from "cors";
+//import cors from "cors";
 
 
 
