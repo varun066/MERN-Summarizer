@@ -4,7 +4,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import summeryRoutes from "./routes/summeryRoutes.js";
 import articleRoutes from "./routes/articleRoutes.js";
-//import cors from "cors";
+import cors from "cors";
 
 
 
@@ -14,7 +14,7 @@ const app = express();
 
 app.use(express.json());
 
-const cors = require('cors');
+//const cors = require('cors');
 // Replace the Vercel URL placeholder with the URL you get in Step 1.
 const VERCEL_FRONTEND_URL = 'https://mern-summarizer-app.vercel.app/'; 
 
