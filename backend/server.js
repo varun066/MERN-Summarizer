@@ -16,7 +16,7 @@ app.use(express.json());
 
 //const cors = require('cors');
 // Replace the Vercel URL placeholder with the URL you get in Step 1.
-const VERCEL_FRONTEND_URL = 'https://mern-summarizer-app.vercel.app/'; 
+const VERCEL_FRONTEND_URL = 'https://mern-summarizer-app.vercel.app'; 
 
 app.use(cors({ origin: VERCEL_FRONTEND_URL }));
 
